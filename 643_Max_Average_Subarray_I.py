@@ -1,6 +1,5 @@
 # Source: https://leetcode.com/problems/maximum-average-subarray-i/
 # Author: Owen Cooke
-# Date: 06/10/2023
 
 
 class Solution(object):
