@@ -4,17 +4,18 @@
 
 class Solution:
     def searchMatrix(self, matrix, target):
-        m = len(matrix)
         n = len(matrix[0])
-        length = m * n - 1 if n != 0 else m - 1
         l = 0
-        while length != 0:
-            length = length // 2
-            val = matrix[(length + l) // n][(length + l) % n]
-            if target == val:
+        r = len(matrix) * n - 1
+        while l <= r:
+            mid = (l + r) // 2
+            val = matrix[mid // n][mid % n]
+            if val == target:
                 return True
-            elif target > val:
-                l += length
+            elif val < target:
+                l = mid + 1
+            elif val > target:
+                r = mid - 1
         return False
 
 
