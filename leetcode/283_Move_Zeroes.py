@@ -7,20 +7,14 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        first_zero = True
-        z = -1
+        first_zero = 0
         for i in range(len(nums)):
-            if nums[i] == 0 and first_zero:
-                z = i
-                first_zero = False
-            elif nums[i] != 0 and z != -1:
-                nums[z] = nums[i]
-                nums[i] = 0
-                z += 1
+            if nums[i] != 0:
+                nums[first_zero], nums[i] = nums[i], nums[first_zero]
+                first_zero += 1
 
 
 if __name__ == "__main__":
     nums = [0, 1, 0, 3, 12]
-    # nums = [1, 0, 1]
     Solution().moveZeroes(nums)
     print(nums)
